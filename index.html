@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Fetch what the entrance needs straight away. The animation library is
+     loaded near the end of the body, so without this the browser could not
+     start downloading it until the parser had read most of the page. -->
+<link rel="preload" href="js/motion.min.js" as="script">
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/hero-828.webp 828w, assets/img/hero-1586.webp 1586w" imagesizes="max(100vw, 150vh)" fetchpriority="high">
+<script>/* Entrance poses are armed only when motion is allowed, so reduced-motion and
+   no-JS visitors get the finished page.
+   The page used to disarm itself on a fixed 3s clock. Over a real connection
+   the animation library routinely lands after that, so the disarm fired first
+   and the entrance never ran for visitors at all -- only locally, where files
+   arrive at once. Disarm now reacts to the script actually failing (its onerror
+   calls __disarm), with a long backstop only for a load that hangs outright. */
+(function(r){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ r.classList.add("js-motion");
+ window.__disarm=function(){if(!r.classList.contains("motion-ready"))r.classList.remove("js-motion")};
+ setTimeout(window.__disarm,10000);
+})(document.documentElement)</script>
+<title>Create® — Design Studio</title>
+<meta name="description" content="Brands and products built to carry weight. An independent studio for brand, product and web.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="hdr over-hero" id="hdr">
+  <div class="shell hdr-in">
+    <a href="#top" class="logo hdr-logo" data-d="500" aria-label="Create — home">create<sup>®</sup></a>
+    <nav class="nav t-mono" aria-label="Primary">
+      <a href="#top"><span class="roll"><span>HOME</span><span aria-hidden="true">HOME</span></span></a>
+      <a href="#story-section"><span class="roll"><span>STORY</span><span aria-hidden="true">STORY</span></span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ═══════════════════════════════════════════════ HERO ═════════════════ -->
+<div class="scene">
+<section class="hero" aria-label="Introduction">
+  <div class="hero-bg"><div class="hero-lqip" aria-hidden="true"></div><div class="hero-media">
+    <picture><source type="image/webp" srcset="assets/img/hero-828.webp 828w, assets/img/hero-1586.webp 1586w" sizes="max(100vw, 150vh)"><img class="hero-poster" src="assets/img/hero-1586.jpg" srcset="assets/img/hero-828.jpg 828w, assets/img/hero-1586.jpg 1586w" sizes="max(100vw, 150vh)" width="1586" height="992" alt="" fetchpriority="high"></picture>
+    <video class="hero-vid" data-src="assets/video/bg_flowergirl.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+  </div></div>
+  <div class="hero-in">
+
+    <!-- 00.01 -->
+    <div class="shell">
+      <div class="grid" style="align-items:start;row-gap:24px">
+        <div class="r1"><div class="rail t-mono-sm hx-mark" data-d="0">// 00.01°</div></div>
+        <h1 class="hero-h1 t-h4 hx-row" data-d="0" style="max-width:550px" id="heroH1"></h1>
+        <div class="hero-stat hx-row" data-d="0">
+          <p class="t-h4 num accent hx-pop" data-d="1000" style="font-weight:700"><span class="count" data-to="10" data-suffix="+" data-dur="600" data-delay="1000">0+</span></p>
+          <p class="t-mono mt1 hx-lift split-lines" data-d="1000" style="color:#fff;max-width:24ch;margin-left:auto">Quietly making noise for brands worldwide</p>
+          <div class="hero-logos mt1 hx-lift" data-d="1000"><div class="logo-track"><div class="logo-set"><img src="assets/img/hero-logos/obliqon.svg" alt="Obliqon" width="169" height="44"><img src="assets/img/hero-logos/numeriq.svg" alt="Numeriq" width="179" height="44"><img src="assets/img/hero-logos/aurelis.svg" alt="aurelis beach resort" width="140" height="44"></div><div class="logo-set" aria-hidden="true"><img src="assets/img/hero-logos/obliqon.svg" alt="" width="169" height="44"><img src="assets/img/hero-logos/numeriq.svg" alt="" width="179" height="44"><img src="assets/img/hero-logos/aurelis.svg" alt="" width="140" height="44"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 00.02 -->
+    <div class="shell hero-row2">
+      <div class="grid" style="align-items:start;row-gap:16px">
+        <div class="r1"><div class="rail t-mono-sm hx-mark" data-d="0">// 00.02°</div></div>
+        <div class="hero-mark hx-row" data-d="0">
+          <div class="hero-mark-clip">
+            <p class="t-wordmark hero-mark-text"><span class="accent">Create</span><span style="color:#f2f2f2">\Studio</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 00.03 -->
+    <div class="shell">
+      <div class="grid" style="align-items:start;row-gap:32px">
+        <div class="r1"><div class="rail t-mono-sm hx-mark" data-d="0">// 00.03°</div></div>
+
+        <div class="hero-info hx-row" data-d="0">
+          <div style="max-width:356px">
+            <p class="t-mono hx-fade" data-d="700">A design studio trusted by startups and leading brands.</p>
+            <p class="t-mono hx-fade" data-d="700">We create stories people remember.</p>
+          </div>
+          <div class="hx-time mt3" data-d="600">
+            <span class="hair" style="width:32px;background:rgba(255,255,255,.4);margin-bottom:12px;display:block"></span>
+            <p class="t-mono-sm" style="color:rgba(255,255,255,.85)">Our time <span id="clock" class="num">--:--</span></p>
+            <p class="t-mono-sm" style="color:rgba(255,255,255,.85)">UTC−8 Los Angeles</p>
+          </div>
+          <div class="flex wrap g1" style="gap:12px;margin-top:28px;margin-left:-8px">
+            <a href="#story-section" class="btn btn-accent"><span class="lmask" data-d="1000"><span>See work</span></span> <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+            <a href="#story-section" class="btn btn-light"><span class="lmask" data-d="1200"><span>Let's chat</span></span> <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          </div>
+
+        <div class="hero-card hx-row" data-d="0">
+          <div class="reel-head t-mono-sm"><span>Showreel</span><span class="hair"></span><span>\\2026</span></div>
+          <a class="reel" id="reel" href="#story-section" aria-label="Watch showreel 2025">
+            <video data-src="assets/video/showreel.mp4" poster="assets/img/showreel.jpg"
+                   muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="reel-cta">
+              <span class="reel-cta-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></span>
+              <span class="reel-cta-label">Showreel 2025</span>
+            </span>
+          </a>
+          <p class="reel-note t-mono-sm"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5 11.9 7.1 17.5 7.4 13.2 11 14.6 16.5 10 13.4 5.4 16.5 6.8 11 2.5 7.4 8.1 7.1Z"/></svg><span>Best digital campaign, Signal Awards</span></p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 00.04 + showreel -->
+    <div class="shell">
+      <div class="grid" style="align-items:start;row-gap:32px">
+        <div class="r1"><div class="rail t-mono-sm hx-mark" data-d="0">// 00.04°</div></div>
+
+        <div class="hero-info hx-row" data-d="0">
+        </div>
+
+      </div>
+    </div>
+
+    <p class="t-wordmark hero-create" aria-hidden="true">let's create</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ STORY (page 2) ═══════ -->
+<section class="story-section" id="story-section" aria-label="Studio statement">
+  <div class="story-sticky">
+    <div class="story-water" aria-hidden="true">
+      <video class="story-water-a" data-src="assets/video/story.mp4" poster="assets/img/water.jpg"
+             muted loop playsinline preload="none"></video>
+      <video class="story-water-b" data-src="assets/video/story.mp4" poster="assets/img/water.jpg"
+             muted loop playsinline preload="none"></video>
+      <span class="story-drip story-drip-1"></span>
+      <span class="story-drip story-drip-2"></span>
+      <span class="story-drip story-drip-3"></span>
+      <span class="story-drip story-drip-4"></span>
+      <span class="story-drip story-drip-5"></span>
+      <span class="story-drip story-drip-6"></span>
+    </div>
+    <div class="story-bubbles" aria-hidden="true">
+      <span class="story-bubble story-bubble-1"></span>
+      <span class="story-bubble story-bubble-2"></span>
+      <span class="story-bubble story-bubble-3"></span>
+      <span class="story-bubble story-bubble-4"></span>
+      <span class="story-bubble story-bubble-5"></span>
+      <span class="story-bubble story-bubble-6"></span>
+    </div>
+    <div class="story-text">
+      <div class="story-line">we listen</div>
+      <div class="story-line">we imagine</div>
+      <div class="story-line story-line-accent">we create</div>
+      <div class="story-line">beautiful things</div>
+    </div>
+  </div>
+</section>
+</div>
+
+</main>
+
+<script src="js/motion.min.js" onerror="window.__disarm&&window.__disarm()"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
