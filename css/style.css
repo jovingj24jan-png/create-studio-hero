@@ -138,8 +138,17 @@ ul{list-style:none}
 .hero-lqip{position:absolute;inset:0;background:#080808 url(data:image/webp;base64,UklGRjABAABXRUJQVlA4ICQBAABwCQCdASpAACgAPulgqk2pJaQiMrbbMSAdCWgAvnsgASzMR6D0z5zWgfyXYj8Q3Vk29yzR/LXSVYvGLGKltQNAWSHztb7pA46XAt6PdMUYyoM87wAA/vnAQ+o5EZkLk6YjIxmvL0ggaxgI231jr1OJPmAKxJSA5wbDtczC13L2OXWAe1XUGTgOgFY0mYQT9AKVZ8zIUSEISllUJZbqhUqltUUeCe/9/DN6zpBHCBiwTWIJAGFYa7MfcZwUbIKKixATUZG0v5HHbwaMu5xzEWfXPPqWDS1DPsjDxBuTwS5ruUVXhzFgS2oPxaYVkPiQgokjuingygmyGQR9bJYkBPBYsBrt5y96GubQLLuIKkvlRnYxKnIRMdTF6CLWcbnfzfZcAAAA) 50% 45%/cover no-repeat}
 .hero-media{position:absolute;inset:0}
 .hero-media img,.hero-vid{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
-.hero-vid{opacity:0;transition:opacity 1.2s cubic-bezier(.4,0,.2,1)}
-.hero-vid.on{opacity:1}
+/* Photo -> clip. The clip's first frame is a far brighter, re-posed shot, so a
+   plain opacity fade showed a muddy double exposure. Instead the two dissolve
+   through soft focus: the sharp photo melts into its blurred placeholder
+   (.hero-lqip, already underneath) and drifts in, while the clip fades up and
+   settles from a slight push. Opacity and transform only -- animating a blur
+   filter instead dropped frames, worst on phones. */
+.hero-media{--vid-ease:cubic-bezier(.45,.05,.2,1)}
+.hero-poster{transition:opacity 1.2s cubic-bezier(.4,0,.6,1),transform 3.4s cubic-bezier(.22,1,.36,1)}
+.hero-media.vid-on .hero-poster{opacity:0;transform:scale(1.05)}
+.hero-vid{opacity:0;transform:scale(1.06);transition:opacity 2.4s var(--vid-ease),transform 3.4s cubic-bezier(.22,1,.36,1)}
+.hero-vid.on{opacity:1;transform:none}
 html.js-motion .hero-media{opacity:.001;transform:translateY(40px) scale(1.44)}
 html.js-motion .hero-lqip{transform:translateY(40px) scale(1.44)}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,6,9,.4) 0%,rgba(5,6,9,0) 22%,rgba(5,6,9,.08) 70%,rgba(5,6,9,.55) 100%)}

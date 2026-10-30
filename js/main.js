@@ -254,7 +254,9 @@ tick();setInterval(tick,1000);
  if(!v||!v.dataset.src)return;
  var mq=matchMedia("(prefers-reduced-motion: reduce)"), started=false, retry=false, buffered=false, intro=false;
  function settle(){if(window.__heroSettled)return;window.__heroSettled=true;document.dispatchEvent(new Event("hero:settled"))}
- function show(){if(!mq.matches)v.classList.add("on");settle()}
+ // the photo underneath melts into its blurred placeholder as the clip arrives (see the css)
+ function on(yes){v.classList.toggle("on",yes);v.parentNode.classList.toggle("vid-on",yes)}
+ function show(){if(!mq.matches)on(true);settle()}
  function tryPlay(){if(mq.matches||!buffered||!intro)return;var t=v.play();if(t&&t.catch)t.catch(blocked)}
  // autoplay refused: keep the poster, and try again on the first interaction
  function blocked(){
@@ -279,8 +281,8 @@ tick();setInterval(tick,1000);
   if(v.requestVideoFrameCallback)v.requestVideoFrameCallback(show);
   else requestAnimationFrame(function(){requestAnimationFrame(show)});
  });
- v.addEventListener("error",function(){v.classList.remove("on");settle()});
- function motion(){if(mq.matches){v.pause();v.classList.remove("on")}else if(started)tryPlay();else load()}
+ v.addEventListener("error",function(){on(false);settle()});
+ function motion(){if(mq.matches){v.pause();on(false)}else if(started)tryPlay();else load()}
  if(mq.addEventListener)mq.addEventListener("change",motion);else if(mq.addListener)mq.addListener(motion);
  if(mq.matches||(navigator.connection&&navigator.connection.saveData)){settle();return}
  if(!root.classList.contains("motion-ready")||window.__heroIntro)introDone();

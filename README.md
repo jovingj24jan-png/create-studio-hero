@@ -9,6 +9,7 @@ The first two sections of the Create Studio clone
 index.html
 css/style.css            fonts are inlined, so it also works from file://
 js/main.js               hero entrance, hero video, story scroll, header
+js/cursor.js, css/cursor.css   the 15 custom cursors and their picker
 js/motion.min.js         the animation library the clone already used
 assets/img/hero.jpg      the original photo (source only, not loaded)
 assets/img/hero-*.webp   hero.jpg resized for the page (jpg fallbacks too)
@@ -23,7 +24,9 @@ assets/video/            bg_flowergirl.mp4 (hero), story.mp4, showreel.mp4
 3. Only after the page has fully loaded does `bg_flowergirl.mp4` start
    downloading.
 4. It plays once the browser says it can run to the end without stalling (or
-   the whole file has arrived), then fades in over the photo across 1.2s.
+   the whole file has arrived), then dissolves in over ~2.4s: the photo melts
+   into its blurred placeholder while the clip fades up and settles from a
+   slight push. Opacity and transform only, so it stays smooth on phones.
 
 If the video is slow, fails, autoplay is blocked, or the visitor asked for
 reduced motion or data saving, hero.jpg simply stays. The story and showreel
@@ -31,3 +34,16 @@ videos wait until the hero video is ready, so they never compete with it.
 
 To regenerate the resized images after replacing hero.jpg, export it at
 828px and 1586px wide as WebP and JPEG with the same names.
+
+## Custom cursors
+
+A small tab on the right edge opens a picker with fifteen cursor styles
+(01 minimal circle ... 15 premium hover). A click applies one immediately; the
+choice is kept in localStorage, so it survives reloads, the HOME/STORY links
+and other tabs. Arrow keys move through the list, Esc closes it.
+
+Mouse and trackpad only: on touch devices neither the cursor nor the picker
+appears. Text fields keep the native text cursor. Over the orange buttons the
+cursor turns ink so it stays visible. With reduced motion it follows the
+pointer exactly, without trails or spinning. The cursor layer never moves page
+elements, so the entrance and scroll animations are unaffected.
