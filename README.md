@@ -9,7 +9,8 @@ The first two sections of the Create Studio clone
 index.html
 css/style.css            fonts are inlined, so it also works from file://
 js/main.js               hero entrance, hero video, story scroll, header
-js/cursor.js, css/cursor.css   the 15 custom cursors and their picker
+assets/js/cursor-selector.js, assets/css/cursor-selector.css
+                         the 25 custom cursors and their picker
 js/motion.min.js         the animation library the clone already used
 assets/img/hero.jpg      the original photo (source only, not loaded)
 assets/img/hero-*.webp   hero.jpg resized for the page (jpg fallbacks too)
@@ -37,13 +38,13 @@ To regenerate the resized images after replacing hero.jpg, export it at
 
 ## Custom cursors
 
-A small tab on the right edge opens a picker with fifteen cursor styles
-(01 minimal circle ... 15 premium hover). A click applies one immediately; the
+A small tab on the right edge opens a picker with twenty-five cursor styles
+(01 Minimal Circle ... 25 Dotted Circle), each named beside a live preview. A click applies one immediately; the
 choice is kept in localStorage, so it survives reloads, the HOME/STORY links
 and other tabs. Arrow keys move through the list, Esc closes it.
 
 Mouse and trackpad only: on touch devices neither the cursor nor the picker
 appears. Text fields keep the native text cursor. Over the orange buttons the
 cursor turns ink so it stays visible. With reduced motion it follows the
-pointer exactly, without trails or spinning. The cursor layer never moves page
+pointer exactly, without trails, sparkles, ripples or spinning. The cursor layer never moves page
 elements, so the entrance and scroll animations are unaffected.
